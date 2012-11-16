@@ -1,0 +1,58 @@
+{% load staticfiles %}
+{% block doctype_container %}<!DOCTYPE {% block doctype %}html{% endblock %}>{% endblock %}
+{% block html %}
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+{% endblock %}
+
+{% block head_container %}
+  <head>
+    {% block title_container %}
+      <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+
+    {% block debug_mode_head %}
+      {% if debug %}
+        {% include "layouts/components/debug_mode_head.html" %}
+      {% endif %}
+    {% endblock %}
+
+    {% block favicon_container %}
+      {% if debug %}
+        <link rel="shortcut icon" type="{% block favicon_debug_type %}image/png{% endblock %}"
+          href="{% block favicon_debug %}{% static "images/favicon_debug.png" %}{% endblock %}">
+      {% else %}
+        <link rel="shortcut icon" type="{% block favicon_tyape %}image/png{% endblock %}"
+          href="{% block favicon %}{% static "images/favicon.png" %}{% endblock %}">
+      {% endif %}
+    {% endblock %}
+
+    {% block viewport_container %}
+      <meta name="viewport" content="{% block viewport %}width=device-width, initial-scale=1.0{% endblock %}">
+    {% endblock %}
+
+    {% block charset_container %}
+      <meta charset="{% block chartset %}utf-8{% endblock %}">
+    {% endblock %}
+
+    {% block meta %}{% endblock %}
+
+    {% block opengraph_meta %}{% endblock %}
+
+    {% block head %}{% endblock %}
+    {% block extra_head %}{% endblock %}
+
+  </head>
+{% endblock head_container %}
+
+{% block body_container %}
+  <body class="{% block body_class %}{% endblock %}">
+
+    {% block body %}{% endblock %}
+    {% block extra_body %}{% endblock %}
+
+  </body>
+{% endblock %}
+</html>
