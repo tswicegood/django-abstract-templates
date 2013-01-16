@@ -27,7 +27,7 @@ for dirpath, dirnames, filenames in os.walk('abstract_templates'):
 
 setup(
     name='django-abstract-templates',
-    version='1.2.0',
+    version='1.3alpha.0',
     description='Basic structure for building reusable templates in Django.',
     author='Travis Swicegood',
     author_email='travis@domain51.com',
